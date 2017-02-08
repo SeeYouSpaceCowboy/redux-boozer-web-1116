@@ -12,7 +12,7 @@ import { Provider } from 'react-redux'
 const store = createStore(cocktailsReducer)
 
 ReactDOM.render(
-  <Provider store = { store }
+  <Provider store = { store } >
     <App />
   </Provider>,
   document.getElementById('container')
