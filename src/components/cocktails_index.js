@@ -4,11 +4,18 @@ import { connect } from 'react-redux'
 import { fetchCocktails } from '../actions/index'
 
 class CocktailsIndex extends React.Component {
+
+  componentDidMount(){
+    this.props.fetchCocktails()
+  }
+
   render() {
     const cocktails = this.props.cocktails
-
     return (
         <div>
+          <ul>
+            {cocktails.map((cocktail) => <li key={cocktail.id}>{cocktail.name}</li>)}
+          </ul>
         </div>
     )
   }
@@ -16,7 +23,7 @@ class CocktailsIndex extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    cocktails: state.cocktails
+    cocktails: state
   }
 }
 
